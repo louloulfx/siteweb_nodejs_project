@@ -1,7 +1,7 @@
 <template>
   <div id="show-list">
     <h1>Voici la liste des fournisseurs</h1>
-    <div v-for="provider in providers" :key="provider" class="single-blog">
+    <div  v-for="provider in providers"  class="single-blog">
       <h2>{{ provider.name }}</h2>
       <article>{{ provider.description }}</article>
     </div>
