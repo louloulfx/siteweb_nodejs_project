@@ -1,17 +1,16 @@
 <template>
   <div>
-    <show-list></show-list>
+    <app-header></app-header>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import showList from './components/showList.vue'
-// import addProvider from './components/addProvider.vue'
+import header from './components/Header.vue'
 
 export default {
   components: {
-    'show-list': showList
-    // 'add-provider': addProvider
+    'app-header': header
   }
 }
 </script>
