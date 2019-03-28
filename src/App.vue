@@ -13,6 +13,8 @@ export default {
     'app-header': header
   }
 }
+
+
 </script>
 
 <style>
