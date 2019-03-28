@@ -6,6 +6,9 @@
         <h2>{{ provider.name }}</h2>
       </router-link>
       <article>{{ provider.description }}</article>
+      <div v-if="!submitted">
+        <button v-on:click="deleteData(provider, provider._id)">Supprimer</button>
+      </div>
     </div>
   </div>
 </template>
@@ -14,10 +17,22 @@
 export default {
   data() {
     return {
-      providers: []
+      providers: [],
+      submitted: false
     };
   },
-  methods: {},
+  methods: {
+    deleteData(providers, _id) {
+      this.$http
+        .delete("https://damp-hollows-18655.herokuapp.com/provider/" + _id)
+        .then(function() {
+          this.providers;
+          this.submitted = true;
+          alert("are you sure ?")
+          window.location.reload();
+        });
+    }
+  },
   created() {
     this.$http
       .get("https://damp-hollows-18655.herokuapp.com/provider")
