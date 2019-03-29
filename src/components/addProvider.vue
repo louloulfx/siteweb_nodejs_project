@@ -72,6 +72,7 @@ export default {
   background-color: #585858;
   border-color: #474747;
   border-radius: 10px;
+  padding: 5px;
 }
 .label {
   margin-right: 10px;
@@ -81,12 +82,20 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
+.btn {
+  background-color: #ff5722;
+  border-radius: 20px;
+}
+
 .textarea {
   background-color: #585858;
   border-color: #474747;
   border-radius: 25px;
   margin-bottom: 30px;
   height: 200px;
+  color: #fff;
+  padding: 2%;
 }
 .container_row {
   margin-bottom: 30px;

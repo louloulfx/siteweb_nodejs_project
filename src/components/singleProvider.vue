@@ -1,6 +1,6 @@
 <template>
   <div id="single-blog">
-    <h1>Nom: {{provider.name}}</h1>
+    <h1>{{provider.name}}</h1>
     <article>Description: {{provider.description}}</article>
     <ul>
       <li>Adresse: {{provider.address}}</li>
@@ -79,6 +79,20 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn {
+  border: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ff5722;
+}
+
 .noirrrr{
   color: black;
 }

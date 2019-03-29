@@ -102,6 +102,10 @@ export default {
   color: #fff;
 }
 
+h3:hover { 
+  text-decoration: underline #ff5722;
+}
+
 .search {
   display: block;
   margin-left: auto;
