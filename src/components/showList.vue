@@ -11,7 +11,7 @@
           </div>
         </div>
         <div v-for="provider in providers" class="single-blog col-lg-4">
-          <div class="card" style="width: 18rem;">
+          <div class="card">
             <div class="card-header">
               <router-link v-bind:to="'/provider/' + provider._id">
                 <h2 class="provider-name">{{ provider.name }}</h2>
@@ -49,8 +49,14 @@ export default {
 
 .card {
   background-color: #191919;
+  width: 18rem;
   height: 18rem;
-  margin-bottom: 20%
+  margin-bottom: 20%;
+  border: 2px solid #474747;
+}
+
+.card-header {
+  border-bottom: 2px solid #474747;
 }
 
 .provider-name {
