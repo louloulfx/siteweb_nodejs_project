@@ -1,9 +1,10 @@
 <template>
   <div id="show-list">
     <h1>Voici la liste des fournisseurs</h1>
+    <input type="text" v-model="search" placeholder="Recherche de fournisseur">
     <div class="container">
       <div class="row">
-        <div v-for="provider in providers" class="single-blog col-lg-4">
+        <div v-for="provider in filteredProviders" class="single-blog col-lg-4">
           <div class="card" style="width: 18rem;">
             <div class="card-header">
               <router-link v-bind:to="'/provider/' + provider._id">
@@ -21,12 +22,15 @@
 </template>
 
 <script>
+import searchMixin from '../mixins/searchMixins';
 export default {
   data() {
     return {
-      providers: []
+      providers: [],
+      search: ""
     };
   },
+  mixins: [searchMixin],
   methods: {},
   created() {
     this.$http
