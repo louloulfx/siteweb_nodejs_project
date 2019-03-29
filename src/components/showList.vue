@@ -5,9 +5,9 @@
     <div class="container">
       <div class="row">
         <div class="single-blog col-lg-4">
-          <div class="card" style="width: 18rem;">
+          <div class="card text-center" style="width: 18rem;">
             <div class="card-body">
-              <article class="card-text">ADD HERE</article>
+              <router-link to="/add"><dm-button class="icon icon-center"  color="black" rounded="true" left-icon="control_point"></dm-button></router-link>
             </div>
           </div>
         </div>
@@ -50,7 +50,9 @@ export default {
 </script>
 
 <style scoped>
-
+.icon-center {
+  margin-top: 75px;
+}
 .card {
   background-color: #191919;
   width: 18rem;
