@@ -4,11 +4,18 @@
     <input type="text" v-model="search" placeholder="Recherche de fournisseur">
     <div class="container">
       <div class="row">
+        <div class="single-blog col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <article class="card-text">ADD HERE</article>
+            </div>
+          </div>
+        </div>
         <div v-for="provider in filteredProviders" class="single-blog col-lg-4">
           <div class="card" style="width: 18rem;">
             <div class="card-header">
               <router-link v-bind:to="'/provider/' + provider._id">
-                <h2>{{ provider.name }}</h2>
+                <h2 class="provider-name">{{ provider.name }}</h2>
               </router-link>
             </div>
             <div class="card-body">
@@ -43,4 +50,16 @@ export default {
 </script>
 
 <style scoped>
+
+.card {
+  background-color: #191919;
+  height: 18rem;
+  margin-bottom: 20%
+}
+
+.provider-name {
+  font-weight: bold;
+  color: #fff;
+}
+
 </style>
