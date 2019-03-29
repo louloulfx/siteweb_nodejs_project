@@ -18,4 +18,11 @@ export default {
 </script>
 
 <style>
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
 </style>
