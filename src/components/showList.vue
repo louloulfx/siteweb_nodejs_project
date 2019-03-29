@@ -54,6 +54,12 @@ export default {
 </script>
 
 <style scoped>
+
+.title {
+  text-align: center;
+  font-weight: bold;
+}
+
 .c1 {
   background-color: #191919;
   border-top-left-radius: 25px;
@@ -102,16 +108,13 @@ export default {
   margin-right: auto;
   margin-top: 2%;
   margin-bottom: 3%;
-  border: 2px solid #fff;
+  border: 2px solid #474747;
   border-radius: 5px;
-  background-color: #474747;
+  background-color: #191919;
   width: 300px;
   height: 40px;
   text-align: center;
   color: #fff;
 }
 
-.title {
-  text-align: center;
-}
 </style>
