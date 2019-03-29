@@ -1,7 +1,7 @@
 <template>
   <div id="show-list">
-    <h1>Voici la liste des fournisseurs</h1>
-    <input type="text" v-model="search" placeholder="Recherche de fournisseur">
+    <h1 class="title">Liste des fournisseurs</h1>
+    <input class="search" type="text" v-model="search" placeholder="Recherche de fournisseur">
     <div class="container">
       <div class="row">
         <div class="single-blog col-lg-4">
@@ -50,6 +50,25 @@ export default {
 </script>
 
 <style scoped>
+
+.title {
+  text-align: center;
+}
+
+.search {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background-color: #474747;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+}
 
 .card {
   background-color: #191919;
