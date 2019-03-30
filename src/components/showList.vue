@@ -24,7 +24,6 @@
           <div class="card c1">
             <div class="card-header">
                 <h4 class="provider-name">{{ provider.name }}</h4>
-              
             </div>
           </div></router-link>
           <div class="card c2">
@@ -81,6 +80,10 @@ export default {
   border-top: 2px solid #474747;
 }
 
+.c1:hover {
+  text-decoration: underline #ff5722;
+}
+
 .c2 {
   background-color: #191919;
   border-bottom-left-radius: 25px;
@@ -103,7 +106,7 @@ export default {
 }
 
 .plus {
-  margin-top: 60px;
+  margin-top: 75px;
 }
 
 .provider-name {
