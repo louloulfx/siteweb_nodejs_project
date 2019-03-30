@@ -4,7 +4,12 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h1 class="title">Liste des fournisseurs</h1>
-          <dm-input placeholder="Recherche de fournisseur" left-icon="search" v-model="search" class="search2" name="small" value="value" full-width="false" ></dm-input>
+          <input
+            class="search"
+            type="text"
+            v-model="search"
+            placeholder="Recherche de fournisseurs"
+          >
         </div>
       </div>
     </div>
@@ -20,12 +25,13 @@
           </div>
         </div>
         <div v-for="provider in filteredProviders" class="single-blog col-lg-4">
-              <router-link v-bind:to="'/provider/' + provider._id">
-          <div class="card c1">
-            <div class="card-header">
+          <router-link v-bind:to="'/provider/' + provider._id">
+            <div class="card c1">
+              <div class="card-header">
                 <h4 class="provider-name">{{ provider.name }}</h4>
+              </div>
             </div>
-          </div></router-link>
+          </router-link>
           <div class="card c2">
             <div class="card-body">
               <article class="card-text">{{ provider.description | snippet }}</article>
@@ -59,14 +65,10 @@ export default {
 </script>
 
 <style scoped>
-.col-lg-4{
-  padding-left:4rem;
+.col-lg-4 {
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
-
-/* .title {
-  text-align: center;
-  font-weight: bold;
-} */
 
 .c1 {
   background-color: #191919;
@@ -114,12 +116,18 @@ export default {
   color: #fff;
 }
 
-.search2{
+.search {
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 250px;
   margin-top: 2%;
   margin-bottom: 3%;
+  border: 2px solid #474747;
+  border-radius: 5px;
+  background-color: #191919;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
 }
-
 </style>
