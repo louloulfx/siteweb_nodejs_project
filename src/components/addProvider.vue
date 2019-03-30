@@ -2,12 +2,15 @@
   <div id="add-blog" class="container">
     <form v-if="!submitted" class="form">
       <div class="row container_row">
+        <h2>Ajouter un fournisseur: </h2>
+      </div>
+      <div class="row container_row">
         <label class="label">Nom du fournisseur :</label>
         <input class="input row1" type="text" v-model.lazy="provider.name" required>
       </div>
       <div class="row container_row">
-        <label class="label">Adresse : </label>
-        <input class="input row2" v-model.lazy="provider.address"></input>
+        <label class="label">Adresse :</label>
+        <input class="input row2" v-model.lazy="provider.address">
       </div>
       <div class="row container_row">
         <label class="label">Téléphone :</label>
@@ -20,10 +23,27 @@
       <label class="label">Description:</label>
       <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
       <div class="buttons_container">
-        <button type="button" class="btn btn-danger">Annuler</button>
-        <button type="button" class="btn btn-danger" v-on:click.prevent="post">Ajout d'un fournisseur</button>
+        <button type="button" class="btn">Annuler</button>
+        <button
+          type="button"
+          class="btn"
+          v-on:click.prevent="post"
+        >Ajout d'un fournisseur</button>
       </div>
     </form>
+    <div v-if="submitted">
+      <h2>Vous avez ajouté un fournisseur !</h2>
+
+      <div id="preview">
+        <h3>Voici les informations que vous avez renseigner:</h3>
+        <p>Nom de l'entreprise: {{provider.name}}</p>
+        <p>Description:</p>
+        <p>{{provider.description}}</p>
+        <p>Adresse: {{provider.address}}</p>
+        <p>Numéro de téléphone:: {{provider.phone}}</p>
+        <p>Mail: {{provider.mail}}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -44,15 +64,23 @@ export default {
   methods: {
     post() {
       this.$http
-        .post("https://damp-hollows-18655.herokuapp.com/provider", this.provider).then(function(){
-            this.submitted = true;
-        })
+        .post(
+          "https://damp-hollows-18655.herokuapp.com/provider",
+          this.provider
+        )
+        .then(function() {
+          this.submitted = true;
+        });
     }
   }
 };
 </script>
 
 <style scoped>
+button{
+  background-color: #FF9800;
+  color: white;
+}
 .row1 {
   width: 76%;
 }
@@ -86,7 +114,7 @@ export default {
   border-color: #474747;
   border-radius: 25px;
   margin-bottom: 30px;
-  height: 200px;
+  height: 100px;
 }
 .container_row {
   margin-bottom: 30px;
@@ -103,7 +131,7 @@ export default {
   flex-direction: column;
 }
 @media screen and (max-width: 991px) {
-  .input{
+  .input {
     width: 100%;
   }
 }
