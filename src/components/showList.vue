@@ -23,7 +23,7 @@
               <router-link v-bind:to="'/provider/' + provider._id">
           <div class="card c1">
             <div class="card-header">
-                <h3 class="provider-name">{{ provider.name }}</h3>
+                <h4 class="provider-name">{{ provider.name }}</h4>
               
             </div>
           </div></router-link>
@@ -63,13 +63,19 @@ export default {
 .col-lg-4{
   padding-left:4rem;
 }
+
+/* .title {
+  text-align: center;
+  font-weight: bold;
+} */
+
 .c1 {
   background-color: #191919;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   margin-bottom: 0.5rem;
   width: 18rem;
-  height: 4rem;
+  height: 5rem;
   border-right: 2px solid #474747;
   border-left: 2px solid #474747;
   border-top: 2px solid #474747;
@@ -81,7 +87,7 @@ export default {
   border-bottom-right-radius: 25px;
   margin-bottom: 20%;
   width: 18rem;
-  height: 11.5rem;
+  height: 10.5rem;
   border-right: 2px solid #474747;
   border-left: 2px solid #474747;
   border-bottom: 2px solid #474747;
@@ -97,7 +103,7 @@ export default {
 }
 
 .plus {
-  margin-top: 55px;
+  margin-top: 60px;
 }
 
 .provider-name {
@@ -113,7 +119,4 @@ export default {
   margin-bottom: 3%;
 }
 
-.title {
-  text-align: center;
-}
 </style>
