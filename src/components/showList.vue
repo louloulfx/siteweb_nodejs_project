@@ -65,6 +65,11 @@ export default {
 </script>
 
 <style scoped>
+
+.title {
+  font-weight: bold;
+}
+
 .col-lg-4 {
   padding-left: 4rem;
   padding-right: 4rem;
