@@ -102,9 +102,7 @@
           <div class="modal-body">Si vous le supprimer vous n'aurez plus accès à ses informations</div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
-            <router-link to="/providers">
-              <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button>
-            </router-link>
+            <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button>
           </div>
         </div>
       </div>
@@ -163,11 +161,11 @@ export default {
   color: #fff;
 }
 
-.modal-header{
+.modal-header {
   border-bottom: 3px solid #000000;
 }
 
-.modal-footer{
+.modal-footer {
   border-top: 3px solid #000000;
 }
 
