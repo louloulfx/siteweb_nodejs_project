@@ -44,17 +44,21 @@
       </div>
     </form>
     <div v-if="submitted">
-      <h2>Vous avez ajouté un fournisseur !</h2>
+    <div class="container validAdd">
+      <h2 class="text-center">Vous avez ajouté un fournisseur !</h2>
 
       <div id="preview">
-        <h3>Voici les informations que vous avez renseigner:</h3>
-        <p>Nom de l'entreprise: {{provider.name}}</p>
-        <p>Description:</p>
-        <p>{{provider.description}}</p>
-        <p>Adresse: {{provider.address}}</p>
-        <p>Numéro de téléphone:: {{provider.phone}}</p>
-        <p>Mail: {{provider.mail}}</p>
+        <h3 class="text-center">Voici les informations que vous avez renseigner:</h3>
+        <div class="contenu col-lg-12">
+          <p>Nom de l'entreprise: {{provider.name}}</p>
+          <p>Description:</p>
+          <p>{{provider.description}}</p>
+          <p>Adresse: {{provider.address}}</p>
+          <p>Numéro de téléphone:: {{provider.phone}}</p>
+          <p>Mail: {{provider.mail}}</p>
+        </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -89,6 +93,9 @@ export default {
 </script>
 
 <style scoped>
+h3{
+  margin-bottom: 30px;
+}
 .row {
   margin-bottom: 20px;
 }
@@ -97,6 +104,9 @@ button {
   color: white;
 }
 
+.validAdd{
+  padding: 20px 20px 20px 20px;
+}
 .input {
   border-style: none;
   color: white;
@@ -140,6 +150,7 @@ button {
   display: flex;
   flex-direction: column;
 }
+
 @media screen and (max-width: 991px) {
   .input {
     width: 100%;

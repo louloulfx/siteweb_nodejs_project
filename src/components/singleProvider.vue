@@ -26,27 +26,43 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title noirrrr" id="exampleModalLabel">Modification du fournisseur</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Modification du fournisseur</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body noirrrr">
-            <div class="row container_row">
-              <label class="label">Nom du fournisseur :</label>
-              <input class="input row1" type="text" v-model.lazy="provider.name" required>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="label">Nom:</label>
+              </div>
+              <div class="col-lg-9">
+                <input class="input" type="text" v-model.lazy="provider.name" required>
+              </div>
             </div>
-            <div class="row container_row">
-              <label class="label">Adresse :</label>
-              <input class="input row2" v-model.lazy="provider.address">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="label">Adresse:</label>
+              </div>
+              <div class="col-lg-9">
+                <input class="input" v-model.lazy="provider.address">
+              </div>
             </div>
-            <div class="row container_row">
-              <label class="label">Téléphone :</label>
-              <input class="input row3" type="text" v-model.lazy="provider.phone" required>
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="label">Téléphone :</label>
+              </div>
+              <div class="col-lg-9">
+                <input class="input" type="text" v-model.lazy="provider.phone" required>
+              </div>
             </div>
-            <div class="row container_row">
-              <label class="label">Adresses mail :</label>
-              <input class="input row4" type="text" v-model.lazy="provider.mail" required>
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="label">Adresses mail :</label>
+              </div>
+              <div class="col-lg-9">
+                <input class="input" type="text" v-model.lazy="provider.mail" required>
+              </div>
             </div>
             <label class="label">Description:</label>
             <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
@@ -78,17 +94,12 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5
-              class="modal-title noirrrr"
-              id="exampleModalLabel"
-            >Etes-vous bien sûr de vouloir faire ça?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Etes-vous bien sûr de vouloir faire ça?</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div
-            class="modal-body noirrrr"
-          >Si vous le supprimer vous n'aurez plus accès à ses informations</div>
+          <div class="modal-body">Si vous le supprimer vous n'aurez plus accès à ses informations</div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
             <router-link to="/providers">
@@ -140,9 +151,7 @@ export default {
           this.provider
         )
         .then(function() {
-          window.location.reload(
-            "/add"
-          );
+          window.location.reload("/add");
         });
     }
   }
@@ -150,6 +159,18 @@ export default {
 </script>
 
 <style scoped>
+.close {
+  color: #fff;
+}
+
+.modal-header{
+  border-bottom: 3px solid #000000;
+}
+
+.modal-footer{
+  border-top: 3px solid #000000;
+}
+
 h1 {
   text-align: center;
   font-weight: bold;
@@ -161,10 +182,37 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   background-color: #ff5722;
+  border-radius: 20px;
 }
 
-.noirrrr {
-  color: black;
+.modal-content {
+  background-color: #171717;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.input {
+  border-style: none;
+  color: white;
+  -webkit-appearance: none;
+  background-color: #585858;
+  border-color: #474747;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.textarea {
+  background-color: #585858;
+  border-color: #474747;
+  border-radius: 25px;
+  margin-bottom: 30px;
+  height: 200px;
+  color: #fff;
+  padding: 2%;
+  width: 100%;
 }
 </style>
 
