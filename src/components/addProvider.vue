@@ -6,23 +6,35 @@
       </div>
       <div class="row">
         <div class="col-lg-3">
-          <label class="label">Nom du fournisseur :</label>
+          <label class="label">Nom:</label>
         </div>
         <div class="col-lg-9">
           <input class="input" type="text" v-model.lazy="provider.name" required>
         </div>
       </div>
-      <div class="row container_row">
-        <label class="label">Adresse :</label>
-        <input class="input row2" v-model.lazy="provider.address">
+      <div class="row">
+        <div class="col-lg-3">
+          <label class="label">Adresse:</label>
+        </div>
+        <div class="col-lg-9">
+          <input class="input" v-model.lazy="provider.address">
+        </div>
       </div>
-      <div class="row container_row">
-        <label class="label">Téléphone :</label>
-        <input class="input row3" type="text" v-model.lazy="provider.phone" required>
+      <div class="row">
+        <div class="col-lg-3">
+          <label class="label">Téléphone :</label>
+        </div>
+        <div class="col-lg-9">
+          <input class="input" type="text" v-model.lazy="provider.phone" required>
+        </div>
       </div>
-      <div class="row container_row">
-        <label class="label">Adresses mail :</label>
-        <input class="input row4" type="text" v-model.lazy="provider.mail" required>
+      <div class="row">
+        <div class="col-lg-3">
+          <label class="label">Adresses mail :</label>
+        </div>
+        <div class="col-lg-9">
+          <input class="input" type="text" v-model.lazy="provider.mail" required>
+        </div>
       </div>
       <label class="label">Description:</label>
       <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
@@ -77,6 +89,9 @@ export default {
 </script>
 
 <style scoped>
+.row {
+  margin-bottom: 20px;
+}
 button {
   background-color: #ff9800;
   color: white;
@@ -91,10 +106,6 @@ button {
   border-radius: 10px;
   padding: 5px;
   width: 100%;
-}
-.label {
-  margin-right: 10px;
-  color: white;
 }
 .buttons_container {
   display: flex;
