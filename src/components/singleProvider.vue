@@ -120,7 +120,8 @@
           <div class="modal-body">Si vous le supprimer vous n'aurez plus accès à ses informations</div>
           <div class="modal-footer footer-delete">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
-            <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button>
+            <router-link to="/providers">
+            <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button></router-link>
           </div>
         </div>
       </div>
