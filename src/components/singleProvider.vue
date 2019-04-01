@@ -4,7 +4,8 @@
       <div class="left_pannel">
       </div>
       <div class="right_pannel">
-        <div class="row">
+        <div class="row"><router-link to="/providers">
+          <img class="icon_arrow" src="../assets/arrow.png"></router-link>
           <h1 class="name">{{provider.name}}</h1>
           <p class="address">({{provider.address}})</p>
         </div>
@@ -174,6 +175,11 @@ export default {
 </script>
 
 <style scoped>
+.icon_arrow {
+  margin-top: 7px;
+  width: 32px;
+  height: 32px;
+}
 .line_head {
   background: white;
   size: 20px;
