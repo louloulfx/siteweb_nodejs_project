@@ -65,7 +65,9 @@ export default {
 </script>
 
 <style scoped>
-
+.card-header{
+  border-bottom: 1px solid #171717;
+}
 .title {
   font-weight: bold;
 }
@@ -81,7 +83,7 @@ export default {
   border-top-right-radius: 25px;
   margin-bottom: 0.5rem;
   width: 18rem;
-  height: 5rem;
+  height: 4rem;
   border-right: 2px solid #474747;
   border-left: 2px solid #474747;
   border-top: 2px solid #474747;
@@ -97,7 +99,7 @@ export default {
   border-bottom-right-radius: 25px;
   margin-bottom: 20%;
   width: 18rem;
-  height: 10.5rem;
+  height: 11.5rem;
   border-right: 2px solid #474747;
   border-left: 2px solid #474747;
   border-bottom: 2px solid #474747;
