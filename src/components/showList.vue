@@ -113,7 +113,7 @@ export default {
 }
 
 .plus {
-  margin-top: 62px;
+  margin-top: 28%;
 }
 
 .provider-name {
