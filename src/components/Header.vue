@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <router-link to="/">
+    <router-link to="/providers">
       <a class="navbar-brand">
         <img src="../assets/viabrico.png" width="200" height="45" alt>
       </a>

@@ -32,16 +32,28 @@
             </button>
           </div>
           <div class="modal-body noirrrr">
-            <label class="label">Nom du fournisseur :</label>
-        <input class="input row1" type="text" v-model.lazy="provider.name" required>
+            <div class="row container_row">
+              <label class="label">Nom du fournisseur :</label>
+              <input class="input row1" type="text" v-model.lazy="provider.name" required>
+            </div>
+            <div class="row container_row">
+              <label class="label">Adresse :</label>
+              <input class="input row2" v-model.lazy="provider.address">
+            </div>
+            <div class="row container_row">
+              <label class="label">Téléphone :</label>
+              <input class="input row3" type="text" v-model.lazy="provider.phone" required>
+            </div>
+            <div class="row container_row">
+              <label class="label">Adresses mail :</label>
+              <input class="input row4" type="text" v-model.lazy="provider.mail" required>
+            </div>
+            <label class="label">Description:</label>
+            <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                v-on:click="put"
-              >Modifier</button>
+            <button type="button" class="btn btn-primary" v-on:click="put">Modifier</button>
           </div>
         </div>
       </div>
@@ -66,20 +78,21 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title noirrrr" id="exampleModalLabel">Etes-vous bien sûr de vouloir faire ça?</h5>
+            <h5
+              class="modal-title noirrrr"
+              id="exampleModalLabel"
+            >Etes-vous bien sûr de vouloir faire ça?</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body noirrrr">Si vous le supprimer vous n'aurez plus accès à ses informations</div>
+          <div
+            class="modal-body noirrrr"
+          >Si vous le supprimer vous n'aurez plus accès à ses informations</div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
-            <router-link to="/">
-              <button
-                type="button"
-                class="btn btn-primary"
-                v-on:click="deleteData"
-              >Supprimer</button>
+            <router-link to="/providers">
+              <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button>
             </router-link>
           </div>
         </div>
@@ -99,7 +112,7 @@ export default {
         address: "",
         phone: "",
         mail: ""
-      },
+      }
     };
   },
   created() {
@@ -122,9 +135,14 @@ export default {
     },
     put() {
       this.$http
-        .put("https://damp-hollows-18655.herokuapp.com/provider/" + this.id, this.provider)
+        .put(
+          "https://damp-hollows-18655.herokuapp.com/provider/" + this.id,
+          this.provider
+        )
         .then(function() {
-          window.location.reload("https://damp-hollows-18655.herokuapp.com/provider/" + this.id);
+          window.location.reload(
+            "/add"
+          );
         });
     }
   }
@@ -132,7 +150,6 @@ export default {
 </script>
 
 <style scoped>
-
 h1 {
   text-align: center;
   font-weight: bold;
@@ -146,7 +163,7 @@ h1 {
   background-color: #ff5722;
 }
 
-.noirrrr{
+.noirrrr {
   color: black;
 }
 </style>
