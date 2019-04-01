@@ -100,7 +100,7 @@
             </button>
           </div>
           <div class="modal-body">Si vous le supprimer vous n'aurez plus accès à ses informations</div>
-          <div class="modal-footer">
+          <div class="modal-footer footer-delete">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
             <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button>
           </div>
@@ -167,6 +167,10 @@ export default {
 
 .modal-footer {
   border-top: 3px solid #000000;
+}
+
+.footer-delete {
+  border-top: 3px solid #171717
 }
 
 h1 {
