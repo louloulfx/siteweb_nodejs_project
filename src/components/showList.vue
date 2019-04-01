@@ -65,6 +65,11 @@ export default {
 </script>
 
 <style scoped>
+
+.title {
+  font-weight: bold;
+}
+
 .col-lg-4 {
   padding-left: 4rem;
   padding-right: 4rem;
@@ -80,6 +85,10 @@ export default {
   border-right: 2px solid #474747;
   border-left: 2px solid #474747;
   border-top: 2px solid #474747;
+}
+
+.c1:hover {
+  text-decoration: underline #ff5722;
 }
 
 .c2 {
@@ -104,7 +113,7 @@ export default {
 }
 
 .plus {
-  margin-top: 60px;
+  margin-top: 75px;
 }
 
 .provider-name {
