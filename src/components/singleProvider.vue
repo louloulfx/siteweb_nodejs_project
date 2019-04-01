@@ -1,19 +1,41 @@
 <template>
   <div id="single-blog">
-    <h1>{{provider.name}}</h1>
-    <article>Description: {{provider.description}}</article>
-    <ul>
-      <li>Adresse: {{provider.address}}</li>
-      <li>Numéro de téléphone: {{provider.phone}}</li>
-      <li>Email: {{provider.mail}}</li>
-    </ul>
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#updateModal"
-    >Modifier</button>
-
+    <div class="main_container">
+      <div class="left_pannel">
+      </div>
+      <div class="right_pannel">
+        <div class="row">
+          <h1 class="name">{{provider.name}}</h1>
+          <p class="address">({{provider.address}})</p>
+        </div>
+        <hr class="line_head">
+        <div class="row icons_container">
+          <div class="icon_container">
+            <img class="icon" src="../assets/phone.png">
+            <p>{{provider.phone}}</p>
+          </div>
+          <div class="icon_container">
+            <img class="icon" src="../assets/email.png">
+            <p>{{provider.mail}}</p>
+          </div>
+        </div>
+        <p class="desc">{{provider.description}}</p>
+        <div class="buttons_container">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#updateModal"
+          >Modifier</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#deleteModal"
+          >Supprimer</button>
+        </div>
+      </div>
+    </div>
     <!-- Modal -->
     <div
       class="modal fade"
@@ -75,12 +97,7 @@
       </div>
     </div>
 
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#deleteModal"
-    >Supprimer</button>
+    
 
     <!-- Modal -->
     <div
@@ -157,22 +174,52 @@ export default {
 </script>
 
 <style scoped>
-.close {
-  color: #fff;
+.line_head {
+  background: white;
+  size: 20px;
+  margin-top: 4px;
 }
-
-.modal-header {
-  border-bottom: 3px solid #000000;
+.address {
+  padding-top: 14px;
 }
-
-.modal-footer {
-  border-top: 3px solid #000000;
+.icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
 }
-
-.footer-delete {
-  border-top: 3px solid #171717
+.icon_container {
+  display: flex;
+  flex-direction: row;
 }
-
+.icons_container {
+  display: flex;
+  justify-content: space-around;
+}
+.buttons_container {
+  display: flex;
+  justify-content: space-between;
+}
+p {
+  font-size: 20px;
+}
+h1 {
+  font-size: 40px;
+  margin-right: 10px;
+}
+.right_pannel {
+  width: 50%;
+  margin: 20px 20px 20px 20px ;
+}
+.left_pannel {
+  width: 50%;
+}
+.main_container {
+  margin: auto;
+  border-radius: 25px;
+  width: 90%;
+  display: flex;
+  background-color: #191919;
+}
 h1 {
   text-align: center;
   font-weight: bold;
@@ -180,9 +227,6 @@ h1 {
 
 .btn {
   border: none;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   background-color: #ff5722;
   border-radius: 20px;
 }
