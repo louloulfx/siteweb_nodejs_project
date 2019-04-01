@@ -39,7 +39,8 @@
       <label class="label">Description:</label>
       <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
       <div class="buttons_container">
-        <button type="button" class="btn">Annuler</button>
+        <router-link to="/providers">
+        <button type="button" class="btn">Annuler</button></router-link>
         <button type="button" class="btn" v-on:click.prevent="post">Ajout d'un fournisseur</button>
       </div>
     </form>
