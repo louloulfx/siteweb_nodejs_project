@@ -2,11 +2,15 @@
   <div id="add-blog" class="container">
     <form v-if="!submitted" class="form">
       <div class="row container_row">
-        <h2>Ajouter un fournisseur: </h2>
+        <h2>Ajouter un fournisseur:</h2>
       </div>
-      <div class="row container_row">
-        <label class="label">Nom du fournisseur :</label>
-        <input class="input row1" type="text" v-model.lazy="provider.name" required>
+      <div class="row">
+        <div class="col-lg-3">
+          <label class="label">Nom du fournisseur :</label>
+        </div>
+        <div class="col-lg-9">
+          <input class="input" type="text" v-model.lazy="provider.name" required>
+        </div>
       </div>
       <div class="row container_row">
         <label class="label">Adresse :</label>
@@ -24,11 +28,7 @@
       <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
       <div class="buttons_container">
         <button type="button" class="btn">Annuler</button>
-        <button
-          type="button"
-          class="btn"
-          v-on:click.prevent="post"
-        >Ajout d'un fournisseur</button>
+        <button type="button" class="btn" v-on:click.prevent="post">Ajout d'un fournisseur</button>
       </div>
     </form>
     <div v-if="submitted">
@@ -77,22 +77,11 @@ export default {
 </script>
 
 <style scoped>
-button{
-  background-color: #FF9800;
+button {
+  background-color: #ff9800;
   color: white;
 }
-.row1 {
-  width: 76%;
-}
-.row2 {
-  width: 89%;
-}
-.row3 {
-  width: 86%;
-}
-.row4 {
-  width: 83%;
-}
+
 .input {
   border-style: none;
   color: white;
@@ -101,6 +90,7 @@ button{
   border-color: #474747;
   border-radius: 10px;
   padding: 5px;
+  width: 100%;
 }
 .label {
   margin-right: 10px;
