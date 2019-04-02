@@ -2,7 +2,12 @@
   <div id="single-blog">
     <div class="main_container">
       <div class="left_pannel">
-        <app-map></app-map>
+        <l-map style="height: 80%; width: 100%" :zoom="zoom" :center="position">
+          <l-tile-layer :url="url"></l-tile-layer>
+          <l-marker :lat-lng="position"></l-marker>
+        </l-map>
+        Position:
+        {{ position }}
       </div>
       <div class="right_pannel">
         <div class="row">
@@ -150,11 +155,12 @@
 </template>
 
 <script>
-import map from "./map.vue";
-
+import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 export default {
   components: {
-    "app-map": map
+    LMap,
+    LTileLayer,
+    LMarker
   },
   data() {
     return {
@@ -167,8 +173,15 @@ export default {
         mail: "",
         longitude: "",
         latitude: ""
-      }
+      },
+      url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      zoom: 15
     };
+  },
+  computed: {
+    position() {
+      return [this.provider.longitude, this.provider.latitude];
+    }
   },
   created() {
     this.$http
