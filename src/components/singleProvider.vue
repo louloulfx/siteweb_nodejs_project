@@ -1,11 +1,12 @@
 <template>
   <div id="single-blog">
     <div class="main_container">
-      <div class="left_pannel">
-      </div>
+      <div class="left_pannel"></div>
       <div class="right_pannel">
-        <div class="row"><router-link to="/providers">
-          <img class="icon_arrow" src="../assets/arrow.png"></router-link>
+        <div class="row">
+          <router-link to="/providers">
+            <img class="icon_arrow" src="../assets/arrow.png">
+          </router-link>
           <h1 class="name">{{provider.name}}</h1>
           <p class="address">({{provider.address}})</p>
         </div>
@@ -21,6 +22,8 @@
           </div>
         </div>
         <p class="desc">{{provider.description}}</p>
+        <p>longitude: {{provider.longitude}}</p>
+        <p>latitude: {{provider.latitude}}</p>
         <div class="buttons_container">
           <button
             type="button"
@@ -87,6 +90,22 @@
                 <input class="input" type="text" v-model.lazy="provider.mail" required>
               </div>
             </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="label">longitude :</label>
+              </div>
+              <div class="col-lg-9">
+                <input class="input" type="text" v-model.lazy="provider.longitude" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="label">latitude :</label>
+              </div>
+              <div class="col-lg-9">
+                <input class="input" type="text" v-model.lazy="provider.latitude" required>
+              </div>
+            </div>
             <label class="label">Description:</label>
             <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
           </div>
@@ -97,8 +116,6 @@
         </div>
       </div>
     </div>
-
-    
 
     <!-- Modal -->
     <div
@@ -121,7 +138,8 @@
           <div class="modal-footer footer-delete">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
             <router-link to="/providers">
-            <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button></router-link>
+              <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -139,7 +157,9 @@ export default {
         description: "",
         address: "",
         phone: "",
-        mail: ""
+        mail: "",
+        longitude: "",
+        latitude: ""
       }
     };
   },
@@ -215,7 +235,7 @@ h1 {
 }
 .right_pannel {
   width: 50%;
-  margin: 20px 20px 20px 20px ;
+  margin: 20px 20px 20px 20px;
 }
 .left_pannel {
   width: 50%;

@@ -36,30 +36,49 @@
           <input class="input" type="text" v-model.lazy="provider.mail" required>
         </div>
       </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label class="label">longitude :</label>
+        </div>
+        <div class="col-lg-9">
+          <input class="input" type="text" v-model.lazy="provider.longitude" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label class="label">latitude :</label>
+        </div>
+        <div class="col-lg-9">
+          <input class="input" type="text" v-model.lazy="provider.latitude" required>
+        </div>
+      </div>
       <label class="label">Description:</label>
       <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
       <div class="buttons_container">
         <router-link to="/providers">
-        <button type="button" class="btn">Annuler</button></router-link>
+          <button type="button" class="btn">Annuler</button>
+        </router-link>
         <button type="button" class="btn" v-on:click.prevent="post">Ajout d'un fournisseur</button>
       </div>
     </form>
     <div v-if="submitted">
-    <div class="container validAdd">
-      <h2 class="text-center">Vous avez ajouté un fournisseur !</h2>
+      <div class="container validAdd">
+        <h2 class="text-center">Vous avez ajouté un fournisseur !</h2>
 
-      <div id="preview">
-        <h3 class="text-center">Voici les informations que vous avez renseigner:</h3>
-        <div class="contenu col-lg-12">
-          <p>Nom de l'entreprise: {{provider.name}}</p>
-          <p>Description:</p>
-          <p>{{provider.description}}</p>
-          <p>Adresse: {{provider.address}}</p>
-          <p>Numéro de téléphone:: {{provider.phone}}</p>
-          <p>Mail: {{provider.mail}}</p>
+        <div id="preview">
+          <h3 class="text-center">Voici les informations que vous avez renseigner:</h3>
+          <div class="contenu col-lg-12">
+            <p>Nom de l'entreprise: {{provider.name}}</p>
+            <p>Description:</p>
+            <p>{{provider.description}}</p>
+            <p>Adresse: {{provider.address}}</p>
+            <p>Numéro de téléphone:: {{provider.phone}}</p>
+            <p>Mail: {{provider.mail}}</p>
+            <p>longitude: {{provider.longitude}}</p>
+            <p>latitude: {{provider.latitude}}</p>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -73,7 +92,9 @@ export default {
         description: "",
         address: "",
         phone: "",
-        mail: ""
+        mail: "",
+        longitude: "",
+        latitude: ""
       },
       submitted: false
     };
@@ -94,7 +115,7 @@ export default {
 </script>
 
 <style scoped>
-h3{
+h3 {
   margin-bottom: 30px;
 }
 .row {
@@ -105,7 +126,7 @@ button {
   color: white;
 }
 
-.validAdd{
+.validAdd {
   padding: 20px 20px 20px 20px;
 }
 .input {
