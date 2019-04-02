@@ -10,6 +10,7 @@
               type="text"
               name="username"
               placeholder="Username"
+              v-model="name"
             >
             <!-- class="form-control" -->
           </div>
@@ -18,12 +19,13 @@
             <input
               type="password"
               name="password"
+              v-model="password"
               placeholder="Password"
             >
             <!-- class="form-control" -->
           </div>
               <router-link to="/providers">
-          <button @click.prevent="login" class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button></router-link>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button></router-link>
         </form>
       </div>
     </div>
@@ -34,6 +36,10 @@
 export default {
   data() {
     return {
+      user: {
+        name: "",
+        password: ""
+      }
     };
   },
   methods: {
