@@ -1,7 +1,9 @@
 <template>
   <div id="single-blog">
     <div class="main_container">
-      <div class="left_pannel"></div>
+      <div class="left_pannel">
+        <app-map></app-map>
+      </div>
       <div class="right_pannel">
         <div class="row">
           <router-link to="/providers">
@@ -148,7 +150,12 @@
 </template>
 
 <script>
+import map from "./map.vue";
+
 export default {
+  components: {
+    "app-map": map
+  },
   data() {
     return {
       id: this.$route.params.id,

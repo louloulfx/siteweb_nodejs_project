@@ -3,14 +3,27 @@ import App from './App.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import Routes from './routes'
-import {LMap, LTileLayer, LMarker} from 'vue2-leaflet';
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
+import { Icon } from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 
-Vue.use(LMap);
-Vue.use(LTileLayer);
-Vue.use(LMarker);
 Vue.use(VueResource);
 Vue.use(VueRouter);
-Vue.filter("snippet", function(value) {
+
+// Map
+Vue.component('l-map', LMap);
+Vue.component('l-tile-layer', LTileLayer);
+Vue.component('l-marker', LMarker);
+
+delete Icon.Default.prototype._getIconUrl;
+
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+});
+
+Vue.filter("snippet", function (value) {
   return value.slice(0, 100) + "...";
 });
 const router = new VueRouter({
