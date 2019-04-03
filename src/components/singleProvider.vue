@@ -204,10 +204,11 @@ export default {
       .then(function(data) {
         this.provider = data;
       });
-
+  },
+  updated() {
     this.$http
       .get(
-        "https://nominatim.openstreetmap.org/search/" + "Nantes" +"?format=json&addressdetails=0&limit=1"
+        "https://nominatim.openstreetmap.org/search/" + this.provider.address + "?format=json&polygon=1&addressdetails=1"
       )
       .then(function(data) {
         return data.json();
