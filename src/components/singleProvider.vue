@@ -2,12 +2,17 @@
   <div id="single-blog">
     <div class="main_container">
       <div class="left_pannel">
-        <l-map style="height: 80%; width: 100%" :zoom="zoom" :center="position">
+        <l-map style="height: 80%; width: 100%" :zoom="15" :center="position">
           <l-tile-layer :url="url"></l-tile-layer>
           <l-marker :lat-lng="position"></l-marker>
         </l-map>
         Position:
         {{ position }}
+        <br>
+        Lat :
+        {{ georesult[0].lat }}
+        Lon :
+        {{ georesult[0].lon }}
       </div>
       <div class="right_pannel">
         <div class="row">
@@ -156,6 +161,7 @@
 
 <script>
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+
 export default {
   components: {
     LMap,
@@ -174,15 +180,21 @@ export default {
         longitude: "",
         latitude: ""
       },
+      georesult: [
+        {
+          lon: "",
+          lat: ""
+        }
+      ],
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-      zoom: 15
     };
   },
   computed: {
     position() {
-      return [this.provider.longitude, this.provider.latitude];
+      return [Number(this.georesult[0].lat), Number(this.georesult[0].lon)];
     }
   },
+  latlongaddr() {},
   created() {
     this.$http
       .get("https://damp-hollows-18655.herokuapp.com/provider/" + this.id)
@@ -191,6 +203,17 @@ export default {
       })
       .then(function(data) {
         this.provider = data;
+      });
+
+    this.$http
+      .get(
+        "https://nominatim.openstreetmap.org/search/" + "Nantes" +"?format=json&addressdetails=0&limit=1"
+      )
+      .then(function(data) {
+        return data.json();
+      })
+      .then(function(data) {
+        this.georesult = data;
       });
   },
   methods: {
