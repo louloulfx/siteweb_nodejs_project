@@ -34,8 +34,6 @@
           </div>
         </div>
         <p class="desc">{{provider.description}}</p>
-        <p>longitude: {{provider.longitude}}</p>
-        <p>latitude: {{provider.latitude}}</p>
         <div class="buttons_container">
           <button
             type="button"
@@ -100,22 +98,6 @@
               </div>
               <div class="col-lg-9">
                 <input class="input" type="text" v-model.lazy="provider.mail" required>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3">
-                <label class="label">longitude :</label>
-              </div>
-              <div class="col-lg-9">
-                <input class="input" type="text" v-model.lazy="provider.longitude" required>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3">
-                <label class="label">latitude :</label>
-              </div>
-              <div class="col-lg-9">
-                <input class="input" type="text" v-model.lazy="provider.latitude" required>
               </div>
             </div>
             <label class="label">Description:</label>
@@ -185,7 +167,9 @@ export default {
           lon: "",
           lat: ""
         }
-      ],
+      ],headers : {
+            'User-Agent': 'node-nominatim'
+},
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
     };
   },
