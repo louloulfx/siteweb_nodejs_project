@@ -6,13 +6,6 @@
           <l-tile-layer :url="url"></l-tile-layer>
           <l-marker :lat-lng="position"></l-marker>
         </l-map>
-        Position:
-        {{ position }}
-        <br>
-        Lat :
-        {{ georesult[0].lat }}
-        Lon :
-        {{ georesult[0].lon }}
       </div>
       <div class="right_pannel">
         <div class="row">

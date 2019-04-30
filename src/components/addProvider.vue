@@ -36,22 +36,6 @@
           <input class="input" type="text" v-model.lazy="provider.mail" required>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <label class="label">longitude :</label>
-        </div>
-        <div class="col-lg-9">
-          <input class="input" type="text" v-model.lazy="provider.longitude" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <label class="label">latitude :</label>
-        </div>
-        <div class="col-lg-9">
-          <input class="input" type="text" v-model.lazy="provider.latitude" required>
-        </div>
-      </div>
       <label class="label">Description:</label>
       <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
       <div class="buttons_container">
@@ -74,8 +58,6 @@
             <p>Adresse: {{provider.address}}</p>
             <p>Numéro de téléphone:: {{provider.phone}}</p>
             <p>Mail: {{provider.mail}}</p>
-            <p>longitude: {{provider.longitude}}</p>
-            <p>latitude: {{provider.latitude}}</p>
           </div>
         </div>
       </div>
