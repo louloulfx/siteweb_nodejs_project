@@ -13,7 +13,10 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div v-if="providers === 'loader' " class="loader">
+      <img src="../assets/loader.gif" alt="">
+    </div>
+    <div v-else class="container">
       <div class="row">
         <div class="single-blog col-lg-4">
           <div class="card c3 text-center">
@@ -48,7 +51,7 @@ import searchMixin from "../mixins/searchMixins";
 export default {
   data() {
     return {
-      providers: [],
+      providers: "loader",
       search: ""
     };
   },
@@ -65,6 +68,10 @@ export default {
 </script>
 
 <style scoped>
+  .loader{
+    display: flex;
+    justify-content: center;
+  }
 .card-header{
   border-bottom: 1px solid #171717;
 }
