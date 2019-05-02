@@ -5,7 +5,7 @@
     </div>
     <div v-else class="animated bounceIn main_container">
       <div class="left_pannel">
-        <l-map style="height: 80%; width: 100%" :zoom="15" :center="position">
+        <l-map style="height: 100%; width: 100%" :zoom="15" :center="position">
           <l-tile-layer :url="url"></l-tile-layer>
           <l-marker :lat-lng="position"></l-marker>
         </l-map>
@@ -159,7 +159,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
-              Etes-vous bien sûr de vouloir faire ça?
+              Etes-vous bien sûr de vouloir faire cela ?
             </h5>
             <button
               type="button"
@@ -171,7 +171,7 @@
             </button>
           </div>
           <div class="modal-body">
-            Si vous le supprimer vous n'aurez plus accès à ses informations
+            Si vous le supprimez vous n'aurez plus accès à ces informations.
           </div>
           <div class="modal-footer footer-delete">
             <button
@@ -326,7 +326,7 @@ h1 {
 }
 .right_pannel {
   width: 50%;
-  margin: 20px 20px 20px 20px;
+  margin: 20px;
 }
 .left_pannel {
   width: 50%;
@@ -337,6 +337,7 @@ h1 {
   width: 90%;
   display: flex;
   background-color: #191919;
+  min-height: 500px;
 }
 h1 {
   text-align: center;
