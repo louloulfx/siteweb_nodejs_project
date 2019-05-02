@@ -1,5 +1,5 @@
 <template>
-  <div id="add-blog" class="container">
+  <div id="add-blog" class="animated fadeIn container">
     <form v-if="!submitted" class="form">
       <div class="row container_row">
         <h2>Ajouter un fournisseur:</h2>

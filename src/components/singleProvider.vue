@@ -1,6 +1,9 @@
 <template>
   <div id="single-blog">
-    <div class="main_container">
+    <div class="loader" v-if="provider.name === ''">
+      <img src="../assets/loader.gif" alt="" />
+    </div>
+    <div v-else class="animated bounceIn main_container">
       <div class="left_pannel">
         <l-map style="height: 80%; width: 100%" :zoom="15" :center="position">
           <l-tile-layer :url="url"></l-tile-layer>
@@ -10,36 +13,40 @@
       <div class="right_pannel">
         <div class="row">
           <router-link to="/providers">
-            <img class="icon_arrow" src="../assets/arrow.png">
+            <img class="icon_arrow" src="../assets/arrow.png" />
           </router-link>
-          <h1 class="name">{{provider.name}}</h1>
-          <p class="address">({{provider.address}})</p>
+          <h1 class="name">{{ provider.name }}</h1>
+          <p class="address">({{ provider.address }})</p>
         </div>
-        <hr class="line_head">
+        <hr class="line_head" />
         <div class="row icons_container">
           <div class="icon_container">
-            <img class="icon" src="../assets/phone.png">
-            <p>{{provider.phone}}</p>
+            <img class="icon" src="../assets/phone.png" />
+            <p>{{ provider.phone }}</p>
           </div>
           <div class="icon_container">
-            <img class="icon" src="../assets/email.png">
-            <p>{{provider.mail}}</p>
+            <img class="icon" src="../assets/email.png" />
+            <p>{{ provider.mail }}</p>
           </div>
         </div>
-        <p class="desc">{{provider.description}}</p>
+        <p class="desc">{{ provider.description }}</p>
         <div class="buttons_container">
           <button
             type="button"
             class="btn btn-primary"
             data-toggle="modal"
             data-target="#updateModal"
-          >Modifier</button>
+          >
+            Modifier
+          </button>
           <button
             type="button"
             class="btn btn-primary"
             data-toggle="modal"
             data-target="#deleteModal"
-          >Supprimer</button>
+          >
+            Supprimer
+          </button>
         </div>
       </div>
     </div>
@@ -55,8 +62,15 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modification du fournisseur</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Modification du fournisseur
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -66,7 +80,12 @@
                 <label class="label">Nom:</label>
               </div>
               <div class="col-lg-9">
-                <input class="input" type="text" v-model.lazy="provider.name" required>
+                <input
+                  class="input"
+                  type="text"
+                  v-model.lazy="provider.name"
+                  required
+                />
               </div>
             </div>
             <div class="row">
@@ -74,7 +93,7 @@
                 <label class="label">Adresse:</label>
               </div>
               <div class="col-lg-9">
-                <input class="input" v-model.lazy="provider.address">
+                <input class="input" v-model.lazy="provider.address" />
               </div>
             </div>
             <div class="row">
@@ -82,7 +101,12 @@
                 <label class="label">Téléphone :</label>
               </div>
               <div class="col-lg-9">
-                <input class="input" type="text" v-model.lazy="provider.phone" required>
+                <input
+                  class="input"
+                  type="text"
+                  v-model.lazy="provider.phone"
+                  required
+                />
               </div>
             </div>
             <div class="row">
@@ -90,15 +114,33 @@
                 <label class="label">Adresses mail :</label>
               </div>
               <div class="col-lg-9">
-                <input class="input" type="text" v-model.lazy="provider.mail" required>
+                <input
+                  class="input"
+                  type="text"
+                  v-model.lazy="provider.mail"
+                  required
+                />
               </div>
             </div>
             <label class="label">Description:</label>
-            <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
+            <textarea
+              class="textarea"
+              type="text"
+              v-model.lazy="provider.description"
+              required
+            ></textarea>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
-            <button type="button" class="btn btn-primary" v-on:click="put">Modifier</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Revenir en arrière
+            </button>
+            <button type="button" class="btn btn-primary" v-on:click="put">
+              Modifier
+            </button>
           </div>
         </div>
       </div>
@@ -116,16 +158,37 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Etes-vous bien sûr de vouloir faire ça?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Etes-vous bien sûr de vouloir faire ça?
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">Si vous le supprimer vous n'aurez plus accès à ses informations</div>
+          <div class="modal-body">
+            Si vous le supprimer vous n'aurez plus accès à ses informations
+          </div>
           <div class="modal-footer footer-delete">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir en arrière</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Revenir en arrière
+            </button>
             <router-link to="/providers">
-              <button type="button" class="btn btn-primary" v-on:click="deleteData">Supprimer</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                v-on:click="deleteData"
+              >
+                Supprimer
+              </button>
             </router-link>
           </div>
         </div>
@@ -160,10 +223,11 @@ export default {
           lon: "",
           lat: ""
         }
-      ],headers : {
-            'User-Agent': 'node-nominatim'
-},
-      url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      ],
+      headers: {
+        "User-Agent": "node-nominatim"
+      },
+      url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
     };
   },
   computed: {
@@ -185,7 +249,9 @@ export default {
   updated() {
     this.$http
       .get(
-        "https://nominatim.openstreetmap.org/search/" + this.provider.address + "?format=json&polygon=1&addressdetails=1"
+        "https://nominatim.openstreetmap.org/search/" +
+          this.provider.address +
+          "?format=json&polygon=1&addressdetails=1"
       )
       .then(function(data) {
         return data.json();
@@ -217,6 +283,10 @@ export default {
 </script>
 
 <style scoped>
+.loader {
+  display: flex;
+  justify-content: center;
+}
 .icon_arrow {
   margin-top: 7px;
   width: 32px;
@@ -309,4 +379,3 @@ h1 {
   width: 100%;
 }
 </style>
-
