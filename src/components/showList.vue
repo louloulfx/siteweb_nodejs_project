@@ -16,7 +16,7 @@
     <div v-if="providers === 'loader' " class="loader">
       <img src="../assets/loader.gif" alt="">
     </div>
-    <div v-else class="container">
+    <div v-else class="animated bounceIn container">
       <div class="row">
         <div class="single-blog col-lg-4">
           <div class="card c3 text-center">
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-        <div v-for="provider in filteredProviders" class="single-blog col-lg-4">
+        <div v-for="provider in filteredProviders" class=" animated bounceIn single-blog col-lg-4">
           <router-link v-bind:to="'/provider/' + provider._id">
             <div class="card c1">
               <div class="card-header">
