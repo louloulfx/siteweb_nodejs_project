@@ -2,9 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
-import Routes from './routes'
 import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { router } from './_helpers/router'
+import { store } from './_store'
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
@@ -22,12 +23,10 @@ Icon.Default.mergeOptions({
 Vue.filter("snippet", function (value) {
   return value.slice(0, 100) + "...";
 });
-const router = new VueRouter({
-  routes: Routes,
-  mode: 'history'
-});
 
 new Vue({
-  render: h => h(App),
-  router: router
+  el: '#app',
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')

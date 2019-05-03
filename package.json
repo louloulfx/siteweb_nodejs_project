@@ -18,7 +18,8 @@
     "vue-router": "^3.0.2",
     "vue2-leaflet": "^2.0.2",
     "vue2-leaflet-geosearch": "^1.0.3",
-    "vuedarkmode": "^0.3.23"
+    "vuedarkmode": "^0.3 .23",
+    "vuex": "latest"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
