@@ -27,6 +27,7 @@
             </div>
           </div>
         </div>
+        <!-- Affichage de tout les fournisseurs avec seulement leurs noms et une partie de leurs descriptions -->
         <div v-for="provider in filteredProviders" class=" animated bounceIn single-blog col-lg-4">
           <router-link v-bind:to="'/provider/' + provider._id">
             <div class="card c1">
@@ -58,6 +59,7 @@ export default {
   mixins: [searchMixin],
   methods: {},
   created() {
+    // méthode permettant d'afficher la liste des fournisseurs
     this.$http
       .get("https://damp-hollows-18655.herokuapp.com/provider")
       .then(function(data) {

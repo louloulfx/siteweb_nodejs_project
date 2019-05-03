@@ -1,4 +1,5 @@
 <template>
+<!--  barre de navigation  -->
   <nav class="navbar">
     <router-link to="/">
       <a class="navbar-brand">

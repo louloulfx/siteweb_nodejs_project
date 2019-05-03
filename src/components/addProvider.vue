@@ -1,5 +1,6 @@
 <template>
   <div id="add-blog" class="animated fadeIn container">
+    <!-- Formulaire permmettant de renseigner un nouveau fournisseur -->
     <form v-if="!submitted" class="form">
       <div class="row container_row">
         <h2>Ajouter un fournisseur:</h2>
@@ -39,14 +40,17 @@
       <label class="label">Description:</label>
       <textarea class="textarea" type="text" v-model.lazy="provider.description" required></textarea>
       <div class="buttons_container">
+        <!-- router-link sert à faire un lien sur une autre page, ici c'est vers la page principale -->
         <router-link to="/">
           <button type="button" class="btn">Annuler</button>
         </router-link>
+        <!-- Utilisation de la méthode post pour ajouter un fournisseur dans la base de donnée -->
         <button type="submit" class="btn" v-on:click.prevent="post">Ajout d'un fournisseur</button>
       </div>
     </form>
     <div v-if="submitted">
       <div class="container validAdd">
+        <!-- Affichage du contenu envoyé après avoir cliqué sur le bouton Ajout d'un fournisseur -->
         <h2 class="text-center">Vous avez ajouté un fournisseur !</h2>
 
         <div id="preview">
@@ -69,6 +73,7 @@
 export default {
   data() {
     return {
+      // Liste des champs du modèle provider
       provider: {
         name: "",
         description: "",
@@ -82,6 +87,7 @@ export default {
     };
   },
   methods: {
+    // Méthode permettant d'ajouter un fournisseur
     post() {
       this.$http
         .post(

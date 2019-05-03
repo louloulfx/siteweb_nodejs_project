@@ -4,6 +4,7 @@ import singleProvider from './components/singleProvider.vue'
 import login from './components/login.vue'
 import register from './components/register'
 
+//Routes pour chacune des pages
 export default [
     {path: '/add', component: addProvider},
     {path: '/provider/:id', component: singleProvider},

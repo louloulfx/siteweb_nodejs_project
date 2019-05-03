@@ -237,6 +237,7 @@ export default {
   },
   latlongaddr() {},
   created() {
+    // Méthode pour afficher un fournisseur en fonction de son id
     this.$http
       .get("https://damp-hollows-18655.herokuapp.com/provider/" + this.id)
       .then(function(data) {
@@ -262,6 +263,7 @@ export default {
   },
   methods: {
     deleteData() {
+      // méthode afin de supprimer un fournisseur
       this.$http
         .delete("https://damp-hollows-18655.herokuapp.com/provider/" + this.id)
         .then(function() {
@@ -269,6 +271,7 @@ export default {
         });
     },
     put() {
+    // méthode afin de modifier un fournisseur
       this.$http
         .put(
           "https://damp-hollows-18655.herokuapp.com/provider/" + this.id,

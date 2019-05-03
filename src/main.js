@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
+//Utilisation du module vue-ressource
 import VueResource from 'vue-resource'
+//Utilisation du module vue-router
 import VueRouter from 'vue-router'
 import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -20,6 +22,7 @@ Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 
+// méthode permettant de mettre un nombre de caractères restreints pour la description sur la page showList, en ajoutant "..." à la fin
 Vue.filter("snippet", function (value) {
   return value.slice(0, 100) + "...";
 });

@@ -1,3 +1,4 @@
+// Méthode permettant de faire une recherche en fonction des noms des fournisseurs
 export default {
     computed: {
       filteredProviders: function() {
