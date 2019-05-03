@@ -12,7 +12,7 @@
       </div>
       <div class="right_pannel">
         <div class="row">
-          <router-link to="/providers">
+          <router-link to="/">
             <img class="icon_arrow" src="../assets/arrow.png" />
           </router-link>
           <h1 class="name">{{ provider.name }}</h1>
@@ -181,7 +181,7 @@
             >
               Revenir en arrière
             </button>
-            <router-link to="/providers">
+            <router-link to="/">
               <button
                 type="button"
                 class="btn btn-primary"
