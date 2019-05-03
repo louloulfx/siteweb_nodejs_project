@@ -20,9 +20,9 @@ function login(username, password) {
     return fetch(`https://damp-hollows-18655.herokuapp.com/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
-            // login successful if there's a jwt token in the response
+            // logué avec succès si il y a un token jwt dans la réponse
             if (user.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                // On stock les détails utilisateur et le token dans le localStorage pour garder la connexion
                 localStorage.setItem('user', JSON.stringify(user));
             }
 
@@ -31,7 +31,7 @@ function login(username, password) {
 }
 
 function logout() {
-    // remove user from local storage to log user out
+    // On enlève user du localStorage pour une déconnexion
     localStorage.removeItem('user');
 }
 
@@ -74,7 +74,6 @@ function update(user) {
     return fetch(`https://damp-hollows-18655.herokuapp.com/users/${user.id}`, requestOptions).then(handleResponse);
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     const requestOptions = {
         method: 'DELETE',
@@ -89,7 +88,7 @@ function handleResponse(response) {
         const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {
-                // auto logout if 401 response returned from api
+                // on log out si on reçois un 401 de la part de l'api
                 logout();
                 location.reload(true);
             }
