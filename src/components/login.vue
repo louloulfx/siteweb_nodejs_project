@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mt-5 mx-auto">
-        <form id="loginForm">
+        <form @submit.prevent="handleSubmit" id="loginForm">
           <h1>- ViaBrico -</h1>
           <div class="form-group">
             <!-- <label for="username">Username</label> -->
@@ -10,7 +10,7 @@
               type="text"
               name="username"
               placeholder="Username"
-              v-model="name"
+              v-model="username"
             >
             <!-- class="form-control" -->
           </div>
@@ -24,8 +24,7 @@
             >
             <!-- class="form-control" -->
           </div>
-              <router-link to="/providers">
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button></router-link>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
         </form>
       </div>
     </div>
@@ -33,23 +32,34 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      user: {
-        name: "",
-        password: ""
+  import { mapState, mapActions } from 'vuex'
+
+  export default {
+    data () {
+      return {
+        username: '',
+        password: '',
+        submitted: false
       }
-    };
-  },
-  methods: {
-    post: function(){
-        let formData = new FormData(document.getElementById("loginForm"));
-        this.$http.post("https://damp-hollows-18655.herokuapp.com/user", formData)
+    },
+    computed: {
+      ...mapState('account', ['status'])
+    },
+    created () {
+      // reset login status
+      this.logout();
+    },
+    methods: {
+      ...mapActions('account', ['login', 'logout']),
+      handleSubmit (e) {
+        this.submitted = true;
+        const { username, password } = this;
+        if (username && password) {
+          this.login({ username, password })
+        }
+      }
     }
-  }
-  
-};
+  };
 </script>
 
 <style scoped>
